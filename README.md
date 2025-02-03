@@ -10,7 +10,11 @@
 
 ### Step-by-Step Guide
 
-
+- Run this command
+  
+  ```
+  mkdir mysql
+  ```
 
 #### 1. Build the Project Using Docker Compose
 
