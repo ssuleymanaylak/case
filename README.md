@@ -10,24 +10,9 @@
 
 ### Step-by-Step Guide
 
-#### 1. Environment Setup
 
-- Add mysql directory.
 
-  ```
-  mkdir mysql
-  ```
-
-- In docker-compose.yml, change the data to access the database
-
-  ```
-  MYSQL_DATABASE: laraveldb
-  MYSQL_USER: laravel
-  MYSQL_PASSWORD: secret
-  MYSQL_ROOT_PASSWORD: secret
-  ```
-
-#### 2. Build the Project Using Docker Compose
+#### 1. Build the Project Using Docker Compose
 
 - Run this command
   
@@ -35,7 +20,7 @@
   docker compose build
   ```
 
-#### 3. Create a Laravel Project
+#### 2. Create a Laravel Project
 
 -  Run this command:
 
@@ -53,7 +38,7 @@
   http://localhost:81
   ```
 
-#### 4. Configure Laravel project 
+#### 3. Configure Laravel project 
  
 - Configure Mysql in /src/.env . Uncomment and change:
 
@@ -72,7 +57,7 @@
   docker compose up -d
   ```
 
-#### 5. Run Migrations
+#### 4. Run Migrations
 
   ```
   docker compose run --rm artisan migrate
