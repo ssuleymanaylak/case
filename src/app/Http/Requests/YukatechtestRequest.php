@@ -1,4 +1,3 @@
-// app/Http/Requests/LocationRequest.php
 <?php
 
 namespace App\Http\Requests;
