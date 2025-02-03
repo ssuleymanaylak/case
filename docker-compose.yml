@@ -1,3 +1,5 @@
+networks:
+    laravel:
 services:
 
     nginx:
@@ -13,6 +15,8 @@ services:
             - 443:443
         volumes:
             - ./src:/var/www/html
+        networks:
+            - laravel
 
     php:
         build:
@@ -21,6 +25,10 @@ services:
         container_name: laravel_php
         volumes:
             - ./src:/var/www/html
+        networks:
+            - laravel
+        expose:
+            - "9000"
 
     mysql:
         image: mysql:8.0.27
@@ -30,6 +38,8 @@ services:
             - 3307:3306
         volumes:
             - ./mysql:/var/lib/mysql
+        networks:
+            - laravel
         environment:
             MYSQL_DATABASE: laraveldb
             MYSQL_USER: laravel
