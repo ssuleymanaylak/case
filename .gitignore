@@ -20,4 +20,5 @@
 /src/.nova
 /src/.vscode
 /src/.zed
-mysql/
+mysql/*
+!*.gitkeep
