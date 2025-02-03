@@ -15,7 +15,6 @@
 - Remove empty files from src and mysql dirs.
 
   ```
-  rm src/empty
   rm mysql/empty
   ```
 

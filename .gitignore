@@ -20,5 +20,3 @@
 /src/.nova
 /src/.vscode
 /src/.zed
-mysql/
-!.gitignore
