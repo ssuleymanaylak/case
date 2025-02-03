@@ -45,6 +45,10 @@ services:
             MYSQL_USER: laravel
             MYSQL_PASSWORD: secret
             MYSQL_ROOT_PASSWORD: secret
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+            retries: 5
+            timeout: 5s
 
     composer:
         image: composer:latest
