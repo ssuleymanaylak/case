@@ -12,10 +12,10 @@
 
 #### 1. Environment Setup
 
-- Remove empty files from src and mysql dirs.
+- Add mysql directory.
 
   ```
-  rm mysql/empty
+  mkdir mysql
   ```
 
 - In docker-compose.yml, change the data to access the database
