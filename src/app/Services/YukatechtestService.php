@@ -4,14 +4,14 @@
 
 namespace App\Services;
 
-use App\Repositories\YukatectestRepository
+use App\Repositories\YukatechtestRepository
 ;
 
 class YukatechtestService
 {
-    protected YukatectestRepository $locationRepository;
+    protected YukatechtestRepository $locationRepository;
 
-    public function __construct(YukatectestRepository $locationRepository)
+    public function __construct(YukatechtestRepository $locationRepository)
     {
         $this->locationRepository = $locationRepository;
     }

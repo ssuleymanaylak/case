@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Yukatechtest;
 
-class YukatectestRepository
+class YukatechtestRepository
 {
     public function create(array $data)
     {
