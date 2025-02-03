@@ -21,4 +21,3 @@
 /src/.vscode
 /src/.zed
 mysql/*
-!*.gitkeep
