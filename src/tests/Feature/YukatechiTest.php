@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\Yukatechtest;
+use Illuminate\Testing\Fluent\AssertableJson;
 
 class YukatechiTest extends TestCase
 {
@@ -76,6 +77,30 @@ class YukatechiTest extends TestCase
         $response = $this->getJson("/api/locations/{$location->id}");
         $response->assertStatus(200)
                  ->assertJson(['id' => $location->id]);
+    }
+
+    public function it_returns_sorted_locations_by_proximity()
+    {
+        // Arrange: Create test locations
+        $locations = [
+            Yukatechtest::factory()->create(['latitude' => 40.0, 'longitude' => -74.0]), // A
+            Yukatechtest::factory()->create(['latitude' => 40.1, 'longitude' => -74.1]), // B
+            Yukatechtest::factory()->create(['latitude' => 39.9, 'longitude' => -73.9]), // C
+        ];
+
+        $lat = 40.0;
+        $lng = -74.0;
+
+        // Act: Call the route API
+        $response = $this->getJson('/api/locations/route?lat=' . $lat . '&lng=' . $lng);
+
+        // Assert: Check if the response is sorted by distance
+        $response->assertStatus(200)
+            ->assertJsonCount(3)
+            ->assertJson(fn (AssertableJson $json) =>
+                $json->where('0.id', $locations[0]->id)
+                    ->whereNot('1.id', $locations[0]->id)
+            );
     }
 }
 
