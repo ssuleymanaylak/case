@@ -6,6 +6,7 @@
     - `nginx` - Folder for nginx configuration files
     - `php` - Folder for php configuration files
 - `src` - Folder where the project code will be stored
+- `mysql` - Folder where mysql will be stored
 - `docker-compose.yml` - Docker compose configuration file
 
 ### Step-by-Step Guide
