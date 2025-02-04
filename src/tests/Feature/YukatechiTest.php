@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\Yukatechtest;
 
-class LocationTest extends TestCase
+class YukatechiTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -20,7 +20,15 @@ class LocationTest extends TestCase
         ]);
 
         $response->assertStatus(201)
-                 ->assertJson(['name' => 'Test Location']);
+                 ->assertJson([
+                     'message' => 'Location added!',
+                     'data' => [
+                         'name' => 'Test Location',
+                         'latitude' => 40.7128,
+                         'longitude' => -74.0060,
+                         'color' => '#FF5733',
+                     ]
+                 ]);
     }
 
     public function test_can_list_locations()
@@ -34,6 +42,7 @@ class LocationTest extends TestCase
     public function test_can_update_location()
     {
         $location = Yukatechtest::factory()->create();
+
         $response = $this->putJson("/api/locations/{$location->id}", [
             'name' => 'Updated Location',
             'latitude' => 40.73061,
@@ -42,7 +51,15 @@ class LocationTest extends TestCase
         ]);
 
         $response->assertStatus(200)
-                 ->assertJson(['name' => 'Updated Location']);
+                 ->assertJson([
+                     'message' => 'Location updated!',
+                     'data' => [
+                         'name' => 'Updated Location',
+                         'latitude' => 40.73061,
+                         'longitude' => -73.935242,
+                         'color' => '#00FF00',
+                     ]
+                 ]);
     }
 
     public function test_can_delete_location()

@@ -55,4 +55,9 @@ class YukatechtestService
 
         return 2 * $earthRadius * atan2(sqrt($a), sqrt(1 - $a));
     }
+
+    public function findOrFail($id)
+    {
+        return $this->locationRepository->deleteById($id);
+    }
 }

@@ -27,4 +27,12 @@ class YukatechtestRepository
         $location->update($data);
         return $location;
     }
+
+    public function deleteById($id)
+    {
+        $location = Yukatechtest::findOrFail($id);
+        $location->delete();
+
+        return $location;
+    }
 }

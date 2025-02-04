@@ -52,4 +52,12 @@ class YukatechtestController extends Controller
 
         return response()->json($this->locationService->getSortedLocationsByDistance($lat, $lng));
     }
+
+    public function destroy($id)
+    {
+        $location = $this->locationService->findOrFail($id);
+        $location->delete();
+
+        return response()->json(['message' => 'Location deleted!'], 204);
+    }
 }
