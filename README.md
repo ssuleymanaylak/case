@@ -36,6 +36,9 @@
   docker compose up -d
   ```
 
+  ```
+  docker-compose run --rm composer composer install
+  ```
 - You can verify if the project is working by opening the browser. For example, if it’s set to 81:
 
   ```
@@ -64,13 +67,13 @@
 #### 4. Run Migrations
 
   ```
-  docker compose run --rm artisan migrate
+  docker-compose run --rm php php artisan migrate
   ```
 
 #### 5. Run Seeds
 
   ```
-  docker compose run --rm artisan db:seed
+  docker-compose run --rm php php artisan db:seed
   ```
 
 #### Some useful commands
